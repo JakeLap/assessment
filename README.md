@@ -1,5 +1,4 @@
 # Spotawheel assessment
-### Jacob Lapinski
 
 **This project was created with Laravel 8.x**
 
