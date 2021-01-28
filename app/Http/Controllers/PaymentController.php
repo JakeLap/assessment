@@ -15,7 +15,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = Payment::all();
+        $payments = Payment::orderBy('updated_at', 'desc')->get();
         return view('payment.index', ['payments' => $payments]);
     }
 
@@ -102,6 +102,6 @@ class PaymentController extends Controller
     public function destroy(Payment $payment)
     {
         $payment->delete();
-        return redirect()->back();
+        return redirect()->route('payment.index');
     }
 }
