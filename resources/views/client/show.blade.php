@@ -2,14 +2,29 @@
 
 @section('content')
 
-    <h5>Client's information</h5>
-    <p><strong>{{$client->getFullName()}}</strong></p>
-    <p><strong>{{$client->email}}</strong></p>
-    <p><strong>{{$client->tel ? $client->tel : 'NA'}}</strong></p>
+    <div class="d-flex flex-row justify-content-between border-bottom">
+        <h5>Client's information</h5>
 
-    <div class="d-flex flex-row justify-content-between mt-5">
+        <div class="d-flex flex-row justify-content-start mb-2">
+            <a href="{{route('client.edit', ['client' => $client])}}" class="text-white btn btn-sm btn-info me-2">Edit client</a>
+            <form action="{{route('client.destroy', ['client' => $client])}}" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Delete client" class="btn btn-sm btn-danger">
+            </form>
+        </div>
+    </div>
+    
+
+    <div class="mt-2">
+        <p><strong>{{$client->getFullName()}}</strong></p>
+        <p><strong>{{$client->email}}</strong></p>
+        <p><strong>{{$client->tel ? $client->tel : 'NA'}}</strong></p>
+    </div>
+
+    <div class="d-flex flex-row justify-content-between mt-5 border-bottom">
         <h5>Client's payments</h5>
-        <a href="{{route('payment.create',  ['client_id' => $client->id])}}" class="text-white btn btn-sm btn-primary">Add new payment</a>
+        <a href="{{route('payment.create',  ['client_id' => $client->id])}}" class="text-white btn btn-sm btn-primary mb-2">Add new payment</a>
     </div>
 
     @if ($payments)

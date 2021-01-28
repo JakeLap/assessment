@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-row justify-content-between border-bottom">
         <h5>Clients</h5>
-        <a href="{{route('client.create')}}" class="text-white btn btn-sm btn-primary">Create new client</a>
+        <a href="{{route('client.create')}}" class="text-white btn btn-sm btn-primary mb-2">Create new client</a>
     </div>
     <table class="table">
 

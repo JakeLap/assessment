@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-row justify-content-between border-bottom">
         <h5>Payments</h5>
-        <a href="{{route('payment.create')}}" class="text-white btn btn-sm btn-primary">Create new payment</a>
+        <a href="{{route('payment.create')}}" class="text-white btn btn-sm btn-primary mb-2">Create new payment</a>
     </div>
     <table class="table">
     
